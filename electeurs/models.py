@@ -9,21 +9,21 @@ class Arrondissement(models.Model):
         return f"Arrondissement {self.NumeroArrondissement}"
 
 class Electeur(models.Model):
-    Nom = models.CharField(max_length=100)
-    Prenom = models.CharField(max_length=100)
+    Nom = models.CharField(max_length=225)
+    Prenom = models.CharField(max_length=225)
     DateNaissance = models.DateField()
     LieuNaissance = models.CharField(max_length=100)
-    NumCIN = models.CharField(max_length=50, unique=True)
+    NumCIN = models.CharField(max_length=225, unique=True)
     Adresse = models.TextField()
     IdArrondissement = models.ForeignKey(
         Arrondissement, 
         on_delete=models.CASCADE,
         related_name='electeurs'
     )
-    Profession = models.CharField(max_length=100)
+    Profession = models.CharField(max_length=225)
     Email = models.EmailField(unique=True)
     Image = models.ImageField(upload_to='electeurs/images/', null=True, blank=True)
-    NumeroTel = models.CharField(max_length=20)
+    NumeroTel = models.CharField(max_length=50)
 
     from django.contrib.auth.hashers import make_password
 
