@@ -32,7 +32,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
     "https://i-fidy.onrender.com",
-    "http://127.0.0.1:8000"
+    "http://127.0.0.1:8000",
+	"http://127.0.0.1:5173"
 ]
 
 # Application definition
@@ -61,6 +62,7 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+	'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
